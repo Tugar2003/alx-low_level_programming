@@ -7,16 +7,20 @@
  */
 int main(void)
 {
-	char lower_alpha = 'a';
-	char upper_alpha = 'A';
+	char letter = 'a';
 
-	while (lower_alpha <= 'z' && upper_alpha <= 'Z')
+	while (letter <= 'z')
 	{
-		putchar(lower_alpha);
-		lower_alpha++;
+		putchar(letter);
+		letter++;
+	}
 
-		putchar(upper_alpha);
-		upper_alpha++;
+	letter = 'A';
+
+	while (letter <= 'Z')
+	{
+		putchar(letter);
+		letter++;
 	}
 
 	putchar('\n');
