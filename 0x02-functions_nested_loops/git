@@ -1,0 +1,4 @@
+#!/bin/bash
+git add .
+git commit -m 'Functions nested loops'
+git push
