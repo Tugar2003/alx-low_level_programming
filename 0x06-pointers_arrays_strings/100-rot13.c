@@ -2,28 +2,29 @@
 #include <stdio.h>
 
 /**
- * char *rot13 - encoder rot13
- * @str: pointer to string param
+ * rot13 - encoder rot13
+ * @s: pointer to string params
  *
- * Return: *str
+ * Return: *s
  */
-char *rot13(char *str)
+
+char *rot13(char *s)
 {
-	char *ptr = str;
-	int is_lowercase, is_uppercase;
+	int i;
+	int j;
+	char data1[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+	char datarot[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
 
-	while (*ptr != '\0')
+	for (i = 0; s[i] != '\0'; i++)
 	{
-		is_lowercase = (*ptr >= 'a' && *ptr <= 'z');
-		is_uppercase = (*ptr >= 'A' && *ptr <= 'Z');
-
-		if (is_lowercase || is_uppercase)
+		for (j = 0; j < 52; j++)
 		{
-			char offset = (is_lowercase) ? 'a' : 'A';
-			*ptr = ((*ptr - offset + 13) % 26) + offset;
+			if (s[i] == data1[j])
+			{
+				s[i] = datarot[j];
+				break;
+			}
 		}
-		ptr++;
 	}
-
-	return (str);
+	return (s);
 }
