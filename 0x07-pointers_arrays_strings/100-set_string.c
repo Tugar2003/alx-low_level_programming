@@ -10,12 +10,5 @@
  */
 void set_string(char **s, char *to)
 {
-	/*Allocate memory for the new string*/
-	*s = (char *) malloc(strlen(to) + 1);
-
-	/**
-	 * Copy the content of 'to' to the new memory
-	 * location pointed by 's'
-	 */
-	strcpy(*s, to);
+	*s = to;
 }
