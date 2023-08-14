@@ -6,7 +6,7 @@
  * @d: pointer to struct dog
  * @name: name to initialize
  * @age: age to initialize
- * @ownner: owner to initialize
+ * @owner: owner to initialize
  */
 void init_dog(struct dog *d, char *name, float age, char *owner)
 {
