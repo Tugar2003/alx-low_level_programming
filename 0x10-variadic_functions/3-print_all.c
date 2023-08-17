@@ -1,5 +1,4 @@
 #include "variadic_functions.h"
-
 /**
  * print_all - Prints anything based on the format
  * @format: List of types of arguments passed to the function
@@ -8,7 +7,7 @@
 void print_all(const char * const format, ...)
 {
 	unsigned int i;
-	char *separator;
+	char *separator, *str;
 	va_list args;
 
 	i = 0;
@@ -30,17 +29,20 @@ void print_all(const char * const format, ...)
 				printf("%s%f", separator, va_arg(args, double));
 				break;
 			case 's':
-				separator = va_arg(args, char *) ? "" : "(nil)";
-				printf("%s%s", separator, va_arg(args, char *));
+				{
+				str = va_arg(args, char *);
+				if (str == NULL)
+					str = "(nil)";
+				printf("%s%s", separator, str);
+				}
 				break;
 			default:
-				break;
+				i++;
+				continue;
 		}
-
 		separator = ", ";
 		i++;
 	}
-
 	printf("\n");
 	va_end(args);
 }
