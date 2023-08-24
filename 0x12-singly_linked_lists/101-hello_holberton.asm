@@ -7,17 +7,17 @@ section .text
 	global main
 
 main:
-	push rdi	;
+	push rdi
 	push rdi
 	push rax
 
-	lea rdi, [hello]  ;
-	lea rsi, [format]  ;
-	call printf	;
+	lea rdi, [hello]
+	lea rsi, [format]
+	call printf
 
 
-	pop rax		;
+	pop rax
 	pop rsi
 	pop rdi
 
-	ret		;
+	ret
