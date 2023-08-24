@@ -1,6 +1,6 @@
 section .data
 	hello db "Hello, Holberton", 0
-	format db "%s"; 0
+	newline db 10, 0
 
 section .text
 	extern printf
@@ -15,8 +15,8 @@ main:
 	lea rsi, [format]
 	call printf
 
-	mov rdi, 0xA
-	call putchar
+	lea rdi, [newline]
+	call printf
 
 	pop rax
 	pop rsi
@@ -24,8 +24,8 @@ main:
 
 	ret
 
-section .txt
-	global putchar
-putchar:
+section .data
+	format db "%s"; 0
 
-	ret
+section .text
+	global printf
