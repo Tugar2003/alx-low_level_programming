@@ -15,9 +15,17 @@ main:
 	lea rsi, [format]
 	call printf
 
+	mov rdi, 0xA
+	call putchar
 
 	pop rax
 	pop rsi
 	pop rdi
+
+	ret
+
+section .txt
+	global putchar
+putchar:
 
 	ret
