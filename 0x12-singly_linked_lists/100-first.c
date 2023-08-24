@@ -1,4 +1,5 @@
 #include "lists.h"
+void before_main(void);
 
 /**
  * before_main - prints message before main execute
