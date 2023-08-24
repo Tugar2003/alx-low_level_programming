@@ -1,31 +1,10 @@
-section .data
-	hello db "Hello, Holberton", 0
-	newline db 10, 0
-
-section .text
-	extern printf
-	global main
-
+global  main
+  extern  printf
 main:
-	push rdi
-	push rdi
-	push rax
-
-	lea rdi, [hello]
-	lea rsi, [format]
-	call printf
-
-	lea rdi, [newline]
-	call printf
-
-	pop rax
-	pop rsi
-	pop rdi
-
+	mov  edi, format
+	xor  eax, eax
+	call  printf
+	mov  eax, 0
 	ret
 
-section .data
-	format db "%s"; 0
-
-section .text
-	global printf
+format: db `Hello, Holberton\n`,0
