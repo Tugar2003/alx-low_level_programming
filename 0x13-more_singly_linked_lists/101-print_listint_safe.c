@@ -9,28 +9,27 @@
 size_t print_listint_safe(const listint_t *head)
 {
 	size_t count = 0;
-	const listint_t *current = head;
-	const listint_t *loop_node = NULL;
+	const listint_t *slow = head, *fast = head;
 
-	while (current != NULL)
+	while (fast != NULL && fast->next != NULL)
 	{
-		printf("[%p] %d\n", (void *)current, current->n);
+		printf("[%p] %d\n", (void *)slow, slow->n);
+		slow = slow->next;
+		fast = fast->next->next;
+
+	if (slow == fast)
+	{
+		printf("-> [%p] %d\n", (void *)slow, slow->n);
 		count++;
-
-	/* Check if current node points to a previously visited node */
-	if (current->next >= current)
-	{
-		loop_node = current->next;
 		break;
 	}
 
-		current = current->next;
+		count++;
 	}
 
-	/* If a loop is detected, print " -> [loop_node_address] [loop_node_value]" */
-	if (loop_node != NULL)
+	if (fast == NULL || fast->next == NULL)
 	{
-		printf("-> [%p] %d\n", (void *)loop_node, loop_node->n);
+		printf("[%p] %d\n", (void *)slow, slow->n);
 		count++;
 	}
 
